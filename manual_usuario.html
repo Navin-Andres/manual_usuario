@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario - La Jugada</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .manual-section {
+            padding: 60px 0;
+        }
+        .timeline {
+            list-style: none;
+            padding: 20px 0;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #007bff;
+            left: 50%;
+            margin-left: -2px;
+        }
+        .timeline li {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .timeline li::before,
+        .timeline li::after {
+            content: '';
+            display: table;
+        }
+        .timeline li::after {
+            clear: both;
+        }
+        .timeline-image {
+            width: 150px;
+            height: 150px;
+            background: #007bff;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 150px;
+            position: absolute;
+            left: 50%;
+            margin-left: -75px;
+            overflow: hidden;
+        }
+        .timeline-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .timeline-panel {
+            width: 45%;
+            float: left;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .timeline-inverted .timeline-panel {
+            float: right;
+        }
+        .timeline-inverted .timeline-image {
+            left: 50%;
+            margin-left: -75px;
+        }
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 90px;
+            }
+            .timeline-panel {
+                width: calc(100% - 200px);
+                float: right;
+            }
+            .timeline-image {
+                left: 15px;
+                margin-left: 0;
+            }
+            .timeline-inverted .timeline-panel {
+                float: right;
+            }
+            .timeline-inverted .timeline-image {
+                left: 15px;
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="manual-section" id="manual">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-heading text-uppercase">Manual de Usuario</h2>
+                <h3 class="section-subheading text-muted">Sigue estos pasos para realizar tu reserva en La Jugada.</h3>
+            </div>
+            <ul class="timeline">
+                <!-- Paso 1 -->
+                <li>
+                    <div class="timeline-image">
+                        <img class="rounded-circle img-fluid" src="assets/img/inicio.PNG" alt="Ingresar al sistema" />
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Paso 1</h4>
+                            <h4 class="subheading">Ingresar al sistema</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Accede a la página web de reservas de La Jugada y selecciona la opción "Reservar Cancha".</p>
+                        </div>
+                    </div>
+                </li>
+                <!-- Paso 2 -->
+                <li class="timeline-inverted">
+                    <div class="timeline-image">
+                        <img class="rounded-circle img-fluid" src="assets/img/sede_cancha.PNG" alt="Seleccionar cancha y horario" />
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Paso 2</h4>
+                            <h4 class="subheading">Seleccionar cancha y horario</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Elige la sede, la cancha disponible y el horario que desees reservar.</p>
+                        </div>
+                    </div>
+                </li>
+                <!-- Paso 3 -->
+                <li>
+                    <div class="timeline-image">
+                        <img class="rounded-circle img-fluid" src="assets/img/registra.PNG" alt="Confirmar reserva" />
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Paso 3</h4>
+                            <h4 class="subheading">Confirmar reserva</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Confirma tus datos y selecciona si deseas pagar un abono o el valor total de la reserva.</p>
+                        </div>
+                    </div>
+                </li>
+                <!-- Paso 4 -->
+                <li class="timeline-inverted">
+                    <div class="timeline-image">
+                        <img class="rounded-circle img-fluid" src="assets/img/confirmaciowhatsapp.PNG" alt="Enviar comprobante" />
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Paso 4</h4>
+                            <h4 class="subheading">Enviar comprobante de pago</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Al reservar, se abrirá automáticamente WhatsApp para que envíes tu comprobante de pago en un plazo de 10 minutos.</p>
+                        </div>
+                    </div>
+                </li>
+                <!-- Paso 5 -->
+                <li class="timeline-inverted">
+                    <div class="timeline-image">
+                        <h4>
+                            ¡Reserva
+                            <br />
+                            Confirmada!
+                        </h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
