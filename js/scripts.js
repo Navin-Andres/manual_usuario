@@ -52,3 +52,19 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+//via whatsapp
+ // Botón WhatsApp
+        document.getElementById('whatsappButton').addEventListener('click', function() {
+            // Número de WhatsApp (reemplaza con tu número real)
+            const phoneNumber = '3013435434'; // Cambia por tu número de WhatsApp
+            
+            // Mensaje predefinido para reservas
+            const whatsappMessage = 'Hola! quiero mas informacion sobre las reservas de canchas.';
+            
+            // Crear la URL de WhatsApp
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+            
+            // Abrir WhatsApp
+            window.open(whatsappURL, '_blank');
+        });
