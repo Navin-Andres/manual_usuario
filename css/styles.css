@@ -10894,7 +10894,7 @@ p {
 }
 
 .page-section {
-  padding: 6rem 0;
+ padding: 4rem 0;
 }
 .page-section h2.section-heading, .page-section .section-heading.h2 {
   font-size: 2.5rem;
@@ -11131,182 +11131,324 @@ header.masthead .masthead-heading {
   position: relative;
   padding: 0;
   list-style: none;
+  margin: 0;
 }
 
-.timeline-image img {
-    border-radius: 10px; /* bordes redondeados suaves */
-    width: 100%;
-    height: auto;
-     width: 120px;
-    height: 120px;
-    object-fit: cover;
-}
-
+/* Línea central - móvil primero */
 .timeline:before {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 40px;
-  width: 2px;
+  left: 90px; /* Ajustado para la imagen más grande */
+  width: 3px; /* Línea más gruesa */
   margin-left: -1.5px;
   content: "";
   background-color: #e9ecef;
 }
+
 .timeline > li {
   position: relative;
-  min-height: 50px;
-  margin-bottom: 50px;
+  min-height: 140px; /* Más alto para móvil */
+  margin-bottom: 50px; /* Más separación entre elementos */
 }
-.timeline > li:after, .timeline > li:before {
+
+.timeline > li:after, 
+.timeline > li:before {
   display: table;
   content: " ";
 }
+
 .timeline > li:after {
   clear: both;
 }
+
+/* Panel de contenido - móvil primero */
 .timeline > li .timeline-panel {
   position: relative;
   float: right;
-  width: 100%;
-  padding: 0 20px 0 100px;
+  width: calc(100% - 190px); /* Ajustado para la imagen más grande */
+  padding: 15px 20px; /* Padding más grande */
+  margin-left: 190px; /* Espacio para la imagen circular más grande */
   text-align: left;
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 10px; /* Bordes más redondeados */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12);
 }
+
+/* Flecha del panel */
 .timeline > li .timeline-panel:before {
+  position: absolute;
+  top: 20px;
   right: auto;
   left: -15px;
-  border-right-width: 15px;
-  border-left-width: 0;
+  display: inline-block;
+  border-top: 15px solid transparent;
+  border-right: 15px solid #e9ecef;
+  border-bottom: 15px solid transparent;
+  border-left: 0;
+  content: " ";
 }
+
 .timeline > li .timeline-panel:after {
+  position: absolute;
+  top: 21px;
   right: auto;
   left: -14px;
-  border-right-width: 14px;
-  border-left-width: 0;
+  display: inline-block;
+  border-top: 14px solid transparent;
+  border-right: 14px solid #fff;
+  border-bottom: 14px solid transparent;
+  border-left: 0;
+  content: " ";
 }
+
+/* Imagen circular - móvil primero */
 .timeline > li .timeline-image {
   position: absolute;
   z-index: 100;
   left: 0;
-  width: 150px;         /* más grande que 100px */
-  height: 150px;        /* altura fija igual al ancho */
-  margin-left: 0;
+  top: 0;
+  width: 160px; /* Mucho más grande para móvil */
+  height: 160px;
+  margin-left: -10px; /* Ajustado para centrar */
   text-align: center;
   color: white;
-  border: 7px solid #e9ecef;
-  border-radius: 50%;   /* círculo perfecto */
+  border: 6px solid #e9ecef;
+  border-radius: 50%;
   background-color: #ffc800;
-  overflow: hidden;     /* asegura que la imagen no se salga */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .timeline > li .timeline-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;    /* la imagen se ajusta al círculo */
+  object-fit: cover;
   border-radius: 50%;
 }
 
+/* Texto dentro de la imagen si no hay img */
+.timeline > li .timeline-image h4, 
+.timeline > li .timeline-image .h4 {
+  font-size: 14px; /* Más grande */
+  line-height: 18px;
+  margin: 0;
+  padding: 15px;
+  font-weight: bold;
+}
 
-.timeline > li.timeline-inverted > .timeline-panel {
-  float: right;
-  padding: 0 20px 0 100px;
-  text-align: left;
-}
-.timeline > li.timeline-inverted > .timeline-panel:before {
-  right: auto;
-  left: -15px;
-  border-right-width: 15px;
-  border-left-width: 0;
-}
-.timeline > li.timeline-inverted > .timeline-panel:after {
-  right: auto;
-  left: -14px;
-  border-right-width: 14px;
-  border-left-width: 0;
-}
 .timeline > li:last-child {
   margin-bottom: 0;
 }
-.timeline .timeline-heading h4, .timeline .timeline-heading .h4 {
+
+.timeline .timeline-heading h4, 
+.timeline .timeline-heading .h4 {
   margin-top: 0;
+  margin-bottom: 12px;
   color: inherit;
+  font-size: 19px; /* Mucho más grande */
+  font-weight: 600;
 }
-.timeline .timeline-heading h4.subheading, .timeline .timeline-heading .subheading.h4 {
+
+.timeline .timeline-heading h4.subheading, 
+.timeline .timeline-heading .subheading.h4 {
   text-transform: none;
+  font-size: 16px; /* Más grande */
+  color: #666;
+  font-weight: 400;
 }
+
 .timeline .timeline-body > ul,
 .timeline .timeline-body > p {
   margin-bottom: 0;
+  font-size: 16px; /* Mucho más grande */
+  line-height: 1.6; /* Mejor espaciado */
 }
 
+/* Pantallas pequeñas (menos de 480px) */
+@media (max-width: 479px) {
+  .timeline:before {
+    left: 70px; /* Ajustado */
+  }
+  
+  .timeline > li .timeline-image {
+    width: 120px; /* Más grande que antes */
+    height: 120px;
+    margin-left: 10px;
+    border-width: 5px;
+  }
+  
+  .timeline > li .timeline-panel {
+    width: calc(100% - 150px);
+    margin-left: 150px;
+    padding: 12px 16px;
+  }
+  
+  .timeline > li .timeline-image h4, 
+  .timeline > li .timeline-image .h4 {
+    font-size: 12px;
+    line-height: 15px;
+    padding: 10px;
+  }
+  
+  .timeline .timeline-heading h4 {
+    font-size: 17px; /* Más grande */
+  }
+  
+  .timeline .timeline-body > p {
+    font-size: 15px; /* Más grande */
+  }
+}
+
+/* Tablets pequeñas */
+@media (min-width: 480px) and (max-width: 767px) {
+  .timeline:before {
+    left: 95px; /* Ajustado */
+  }
+  
+  .timeline > li .timeline-image {
+    width: 140px; /* Más grande */
+    height: 140px;
+    margin-left: 25px;
+  }
+  
+  .timeline > li .timeline-panel {
+    width: calc(100% - 180px);
+    margin-left: 180px;
+    padding: 15px 20px;
+  }
+}
+
+/* Tablets y escritorio */
 @media (min-width: 768px) {
   .timeline:before {
     left: 50%;
+    margin-left: -1.5px;
+    width: 3px; /* Línea más gruesa */
   }
+  
   .timeline > li {
-    min-height: 100px;
+    min-height: 140px;
     margin-bottom: 100px;
   }
+  
   .timeline > li .timeline-panel {
     float: left;
-    width: 41%;
-    padding: 0 20px 20px 30px;
+    width: 40%; /* Un poco más ancho */
+    padding: 20px 30px; /* Más padding */
+    margin-left: 0;
     text-align: right;
   }
+  
+  .timeline > li .timeline-panel:before {
+    right: -15px;
+    left: auto;
+    border-right: 0;
+    border-left: 15px solid #e9ecef;
+  }
+  
+  .timeline > li .timeline-panel:after {
+    right: -14px;
+    left: auto;
+    border-right: 0;
+    border-left: 14px solid #fff;
+  }
+  
   .timeline > li .timeline-image {
     left: 50%;
-    width: 100px;
-    height: 100px;
-    margin-left: -50px;
+    width: 140px; /* Más grande */
+    height: 140px;
+    margin-left: -70px;
   }
-  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-    font-size: 13px;
+  
+  .timeline > li .timeline-image h4, 
+  .timeline > li .timeline-image .h4 {
+    font-size: 15px;
     line-height: 18px;
-    margin-top: 16px;
+    padding: 18px;
   }
+  
+  /* Elementos alternos (timeline-inverted) */
   .timeline > li.timeline-inverted > .timeline-panel {
     float: right;
-    padding: 0 30px 20px 20px;
+    padding: 20px 30px;
     text-align: left;
   }
+  
+  .timeline > li.timeline-inverted > .timeline-panel:before {
+    right: auto;
+    left: -15px;
+    border-right: 15px solid #e9ecef;
+    border-left: 0;
+  }
+  
+  .timeline > li.timeline-inverted > .timeline-panel:after {
+    right: auto;
+    left: -14px;
+    border-right: 14px solid #fff;
+    border-left: 0;
+  }
 }
+
+/* Pantallas grandes */
 @media (min-width: 992px) {
   .timeline > li {
-    min-height: 150px;
-  }
-  .timeline > li .timeline-panel {
-    padding: 0 20px 20px;
-  }
-  .timeline > li .timeline-image {
-    width: 150px;
-    height: 150px;
-    margin-left: -75px;
-  }
-  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-    font-size: 18px;
-    line-height: 26px;
-    margin-top: 30px;
-  }
-  .timeline > li.timeline-inverted > .timeline-panel {
-    padding: 0 20px 20px;
-  }
-}
-@media (min-width: 1200px) {
-  .timeline > li {
     min-height: 170px;
+    margin-bottom: 120px;
   }
+  
   .timeline > li .timeline-panel {
-    padding: 0 20px 20px 100px;
+    padding: 25px 35px; /* Más padding */
   }
+  
   .timeline > li .timeline-image {
-    width: 170px;
+    width: 170px; /* Más grande */
     height: 170px;
     margin-left: -85px;
   }
-  .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
-    margin-top: 40px;
+  
+  .timeline > li .timeline-image h4, 
+  .timeline > li .timeline-image .h4 {
+    font-size: 18px;
+    line-height: 22px;
+    padding: 25px;
   }
+  
   .timeline > li.timeline-inverted > .timeline-panel {
-    padding: 0 100px 20px 20px;
+    padding: 25px 35px;
+  }
+}
+
+/* Pantallas extra grandes */
+@media (min-width: 1200px) {
+  .timeline > li {
+    min-height: 190px;
+  }
+  
+  .timeline > li .timeline-panel {
+    padding: 30px 40px; /* Más padding */
+    width: 38%; /* Un poco más ancho */
+  }
+  
+  .timeline > li .timeline-image {
+    width: 190px; /* Mucho más grande */
+    height: 190px;
+    margin-left: -95px;
+  }
+  
+  .timeline > li .timeline-image h4, 
+  .timeline > li .timeline-image .h4 {
+    font-size: 20px;
+    line-height: 26px;
+    padding: 30px;
+  }
+  
+  .timeline > li.timeline-inverted > .timeline-panel {
+    padding: 30px 40px;
+    width: 38%;
   }
 }
 .team-member {
